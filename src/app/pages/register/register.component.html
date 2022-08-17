@@ -1,0 +1,72 @@
+<div class="container">
+	<div class="card" style="margin-top: 25%">
+		<div class="row" style="text-align: center; margin: 5%">
+			<h3>Register</h3>
+			<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+				<div class="mb-3 w-100">
+					<input
+						type="text"
+						placeholder="First Name"
+						class="form-control"
+						style="width: 25% !important; display: inline"
+						formControlName="firstName"
+					/>
+				</div>
+				<div class="mb-3 w-100">
+					<input
+						type="text"
+						placeholder="Last Name"
+						class="form-control"
+						style="width: 25% !important; display: inline"
+						formControlName="lastName"
+					/>
+				</div>
+				<div class="mb-3 w-100">
+					<input
+						type="email"
+						placeholder="Email"
+						class="form-control"
+						style="width: 25% !important; display: inline"
+						formControlName="email"
+					/>
+					<div *ngIf="emailError">
+						<div class="invalid-feedback" style="display: inline !important;">
+							Please enter email properly.
+						</div>
+					</div>
+				</div>
+				<div class="mb-3 w-100">
+					<input
+						type="password"
+						placeholder="Password"
+						class="form-control"
+						style="width: 25% !important; display: inline"
+						formControlName="password"
+					/>
+				</div>
+				<div *ngIf="registerSuccess">
+					<br />
+					<span class="alert alert-success"
+						>User Registered Successfully</span
+					>
+					<br /><br />
+				</div>
+				<div *ngIf="formFailure">
+					<br />
+					<span class="alert alert-danger"
+						>Please fill in all the details</span
+					>
+					<br /><br />
+				</div>
+				<button type="submit" class="btn btn-primary">Register</button>
+				<a
+					type="submit"
+					[routerLink]="['/login']"
+					class="btn btn-primary"
+					style="margin-left: 5px"
+					>Go back to login</a
+				>
+			</form>
+		</div>
+	</div>
+</div>

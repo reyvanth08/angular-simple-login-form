@@ -1,0 +1,39 @@
+<div class="container">
+	<div class="card" style="margin-top: 25%;">
+		<div class="row" style="text-align: center; margin: 5%;">
+			<h3>Login</h3>
+			<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+				<div class="mb-3 w-100">
+					<input
+						type="email"
+						placeholder="Email"
+						class="form-control"
+                        style="width: 25% !important; display: inline"
+                        formControlName="email"
+					/>
+					<div *ngIf="emailError">
+						<div class="invalid-feedback" style="display: inline !important;">
+							Please enter email properly.
+						</div>
+					</div>
+				</div>
+				<div class="mb-3 w-100">
+					<input
+						type="password"
+						placeholder="Password"
+						class="form-control"
+                        style="width: 25% !important; display: inline"
+                        formControlName="password"
+					/>
+				</div>
+				<div *ngIf="formFailure">
+                    <br>
+                    <span class="alert alert-danger">Please check the email and password again</span>
+                    <br><br>
+                </div>
+				<button type="submit" class="btn btn-primary">Login</button>
+                <a type="submit" [routerLink]="['/register']" class="btn btn-primary" style="margin-left: 5px;">Register</a>
+			</form>
+		</div>
+	</div>
+</div>
