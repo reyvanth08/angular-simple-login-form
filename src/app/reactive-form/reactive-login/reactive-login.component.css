@@ -1,0 +1,19 @@
+.login-card {
+	background: rgb(206, 199, 199);
+	margin-top: 20px;
+	padding: 20px 10px;
+	border: rgb(29, 26, 26) 1px solid;
+	box-shadow: 0 2px 2px 0 rgb(0, 0, 0, 0.2);
+}
+.form-group {
+	margin-bottom: 15px;
+}
+.clearfix {
+	overflow: auto;
+}
+
+.clearfix::after {
+	content: "";
+	clear: both;
+	display: table;
+}

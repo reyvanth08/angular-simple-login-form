@@ -9,13 +9,19 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MainComponent } from './main/main/main.component';
+import { ReactiveHomeComponent } from './reactive-form/reactive-home/reactive-home.component';
+import { ReactiveLoginComponent } from './reactive-form/reactive-login/reactive-login.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     PageNotFoundComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    MainComponent,
+    ReactiveHomeComponent,
+    ReactiveLoginComponent
   ],
   imports: [
     BrowserModule,
