@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginModel } from 'src/app/login';
-
+import { AuthService } from 'src/app/auth.service';
 @Component({
 	selector: 'app-reactive-login',
 	templateUrl: './reactive-login.component.html',
@@ -16,13 +16,17 @@ export class ReactiveLoginComponent implements OnInit {
 		password: 'admin@123',
 	};
 
-	constructor(private formBuilder: FormBuilder, private router: Router) {}
+	url: string = "";
+
+	constructor(private formBuilder: FormBuilder, private router: Router, public authService: AuthService) {}
 
 	ngOnInit() {
 		this.loginForm = this.formBuilder.group({
 			email: ['', [Validators.required, Validators.email]],
 			password: ['', Validators.required],
 		});
+		this.url = "/reactive-home";
+		this.authService.logout();
 	}
 
 	onSubmit() {
@@ -36,7 +40,7 @@ export class ReactiveLoginComponent implements OnInit {
 				this.message = "";
 				localStorage.setItem('isLoggedIn', 'true');
 				localStorage.setItem('token', data.email.value);
-				this.router.navigate(['/reactive-home'])
+				this.router.navigate([this.url])
 			} else {
 				this.message = 'Please check your email and password';
 			}
