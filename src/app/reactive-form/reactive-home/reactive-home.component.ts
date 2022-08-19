@@ -9,7 +9,10 @@ import { AuthService } from 'src/app/auth.service';
 export class ReactiveHomeComponent implements OnInit {
 	constructor(private router: Router, public authService: AuthService) {}
 
-	ngOnInit(): void {}
+	emailId: any = "";
+	ngOnInit(): void {
+		this.emailId = localStorage.getItem("token")
+	}
 
 	logout() {
 		this.authService.logout();
