@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule, Routes } from '@angular/router';
 
 import { AuthGuard } from './auth.guard';
-
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
@@ -15,17 +14,7 @@ import { MainComponent } from './main/main/main.component';
 import { ReactiveHomeComponent } from './reactive-form/reactive-home/reactive-home.component';
 import { ReactiveLoginComponent } from './reactive-form/reactive-login/reactive-login.component';
 
-const routes: Routes = [
-	{ path: 'main', component: MainComponent },
-	{ path: 'home', component: HomeComponent },
-	{ path: 'login', component: LoginComponent },
-	{ path: 'register', component: RegisterComponent },
-	{ path: 'reactive-home', component: ReactiveHomeComponent, canActivate: [AuthGuard] },
-	{ path: 'reactive-login', component: ReactiveLoginComponent },
-	{ path: 'page-not-found', component: PageNotFoundComponent },
-	{ path: '', redirectTo: 'main', pathMatch: 'full' },
-	{ path: '**', component: PageNotFoundComponent },
-];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,13 +28,11 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    // AppRoutingModule,
+    AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule,
-    RouterModule.forRoot(routes)
+    ReactiveFormsModule
   ],
   providers: [AuthGuard],
-  bootstrap: [AppComponent],
-  exports: [RouterModule],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
